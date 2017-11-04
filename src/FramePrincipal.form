@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="buttonGroup.add(rbCA);&#xa;buttonGroup.add(rbCC);&#xa;buttonGroup.add(rbCRF);&#xa;buttonGroup.add(rbCM);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="buttonGroup.add(rbCXOR);&#xa;buttonGroup.add(rbCC);&#xa;buttonGroup.add(rbCRF);&#xa;buttonGroup.add(rbCM);"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -16,9 +16,6 @@
     </Property>
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
       <Point value="[0, 0]"/>
-    </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[354, 309]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[354, 309]"/>
@@ -53,7 +50,7 @@
                           <Component id="rbCRF" max="32767" attributes="0"/>
                           <Component id="rbCC" max="32767" attributes="0"/>
                           <Component id="rbCM" max="32767" attributes="0"/>
-                          <Component id="rbCA" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="rbCXOR" min="-2" pref="290" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
@@ -69,7 +66,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="rbCA" min="-2" max="-2" attributes="0"/>
+              <Component id="rbCXOR" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="rbCC" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -84,13 +81,13 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JRadioButton" name="rbCA">
+    <Component class="javax.swing.JRadioButton" name="rbCXOR">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Microsoft Sans Serif" size="14" style="0"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Cifra Aditiva [Substitui&#xe7;&#xe3;o]"/>
+        <Property name="text" type="java.lang.String" value="Cifra XOR [Substitui&#xe7;&#xe3;o]"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[225, 29]"/>
         </Property>

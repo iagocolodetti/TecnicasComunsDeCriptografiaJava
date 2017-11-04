@@ -3,8 +3,8 @@
  * @author iagocolodetti
  */
         
-public class FrameCA extends javax.swing.JFrame {
-    public FrameCA() {
+public class FrameCXOR extends javax.swing.JFrame {
+    public FrameCXOR() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/cadeadoicon.png")).getImage());
     }
@@ -28,9 +28,8 @@ public class FrameCA extends javax.swing.JFrame {
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cifra Aditiva");
+        setTitle("Cifra XOR");
         setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        setMaximumSize(new java.awt.Dimension(1001, 650));
         setMinimumSize(new java.awt.Dimension(1001, 650));
         setName("FrameCA"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1000, 670));
@@ -229,20 +228,21 @@ public class FrameCA extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameCA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCXOR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameCA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCXOR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameCA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCXOR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameCA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCXOR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameCA().setVisible(true);
+                new FrameCXOR().setVisible(true);
             }
         });
     }

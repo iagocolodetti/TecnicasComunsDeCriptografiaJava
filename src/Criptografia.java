@@ -9,7 +9,7 @@ public class Criptografia extends Exception {
     /**
     * Método de ciframento baseado na substituição de caracteres, no qual cada caractere é convertido para binário de acordo com a tabela ASCII e somado a uma chave binária.
     * Este método também decifra em caso de ser um(a) texto/palavra cifrado por ele.
-    * Técnica conhecida como 'Cifra Aditiva'.
+    * Técnica conhecida como 'Cifra XOR'.
     * parâmetro "text" -> Texto/Palavra a ser cifrado(a).
     * parâmetro "key" -> Chave binária.
     */

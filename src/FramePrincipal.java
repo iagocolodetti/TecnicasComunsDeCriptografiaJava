@@ -14,31 +14,31 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/cadeadoicon.png")).getImage());
         switch (rb) {
             case 0:
-                rbCA.setSelected(true);
+                rbCXOR.setSelected(true);
                 rbCC.setSelected(false);
                 rbCRF.setSelected(false);
                 rbCM.setSelected(false);
                 break;
             case 1:
-                rbCA.setSelected(false);
+                rbCXOR.setSelected(false);
                 rbCC.setSelected(true);
                 rbCRF.setSelected(false);
                 rbCM.setSelected(false);
                 break;
             case 2:
-                rbCA.setSelected(false);
+                rbCXOR.setSelected(false);
                 rbCC.setSelected(false);
                 rbCRF.setSelected(true);
                 rbCM.setSelected(false);
                 break;
             case 3:
-                rbCA.setSelected(false);
+                rbCXOR.setSelected(false);
                 rbCC.setSelected(false);
                 rbCRF.setSelected(false);
                 rbCM.setSelected(true);
                 break;
             default:
-                rbCA.setSelected(true);
+                rbCXOR.setSelected(true);
                 rbCC.setSelected(false);
                 rbCRF.setSelected(false);
                 rbCM.setSelected(false);
@@ -51,13 +51,13 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup = new javax.swing.ButtonGroup();
-        rbCA = new javax.swing.JRadioButton();
+        rbCXOR = new javax.swing.JRadioButton();
         rbCC = new javax.swing.JRadioButton();
         rbCRF = new javax.swing.JRadioButton();
         rbCM = new javax.swing.JRadioButton();
         btAbrir = new javax.swing.JButton();
 
-        buttonGroup.add(rbCA);
+        buttonGroup.add(rbCXOR);
         buttonGroup.add(rbCC);
         buttonGroup.add(rbCRF);
         buttonGroup.add(rbCM);
@@ -66,17 +66,16 @@ public class FramePrincipal extends javax.swing.JFrame {
         setTitle("Técnicas Comuns de Criptografia (Java)");
         setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         setLocation(new java.awt.Point(0, 0));
-        setMaximumSize(new java.awt.Dimension(354, 309));
         setMinimumSize(new java.awt.Dimension(354, 309));
         setName("FramePrincipal"); // NOI18N
         setResizable(false);
 
-        rbCA.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        rbCA.setSelected(true);
-        rbCA.setText("Cifra Aditiva [Substituição]");
-        rbCA.setMaximumSize(new java.awt.Dimension(225, 29));
-        rbCA.setMinimumSize(new java.awt.Dimension(225, 29));
-        rbCA.setPreferredSize(new java.awt.Dimension(225, 29));
+        rbCXOR.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        rbCXOR.setSelected(true);
+        rbCXOR.setText("Cifra XOR [Substituição]");
+        rbCXOR.setMaximumSize(new java.awt.Dimension(225, 29));
+        rbCXOR.setMinimumSize(new java.awt.Dimension(225, 29));
+        rbCXOR.setPreferredSize(new java.awt.Dimension(225, 29));
 
         rbCC.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         rbCC.setText("Cifra de César [Substituição]");
@@ -117,7 +116,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                             .addComponent(rbCRF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(rbCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(rbCM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rbCA, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rbCXOR, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(77, 77, 77))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +126,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(rbCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbCXOR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(rbCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -145,9 +144,9 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void btAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAbrirActionPerformed
         // TODO add your handling code here:
-        if (rbCA.isSelected()) {
-            FrameCA fca = new FrameCA();
-            fca.setVisible(true);
+        if (rbCXOR.isSelected()) {
+            FrameCXOR fcxor = new FrameCXOR();
+            fcxor.setVisible(true);
             this.setVisible(false);
         }
         else if (rbCC.isSelected()) {
@@ -200,9 +199,9 @@ public class FramePrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAbrir;
     private javax.swing.ButtonGroup buttonGroup;
-    private javax.swing.JRadioButton rbCA;
     private javax.swing.JRadioButton rbCC;
     private javax.swing.JRadioButton rbCM;
     private javax.swing.JRadioButton rbCRF;
+    private javax.swing.JRadioButton rbCXOR;
     // End of variables declaration//GEN-END:variables
 }
