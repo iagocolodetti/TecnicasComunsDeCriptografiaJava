@@ -11,6 +11,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public FramePrincipal(int rb) {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/cadeadoicon.png")).getImage());
         switch (rb) {
             case 0:
                 rbCA.setSelected(true);
