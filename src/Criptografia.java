@@ -4,36 +4,7 @@
  */
 
 public class Criptografia extends Exception {
-    private String padLeft(String text, int length, char c) {
-        String textpad = "";
-        for (int i = 0; i < length; i++) textpad += c;
-        return textpad.substring(text.length()) + text;   
-    }
-    
-    private boolean isBinary(String text) {
-        for (char c : text.toCharArray()) if (c != '0' && c != '1') return false;
-        return true;
-    }
-
-    private boolean isInvalidChar(char c, int min, int max) {
-        return (c < min || c > max);
-    }
-
-    private String invalidCharsInString(String text, int min, int max) {
-        String invalidchars = "";
-        for (char c : text.toCharArray()) if (isInvalidChar(c, min, max)) invalidchars += c + " (" + (int)c + ")   ";
-        return invalidchars;
-    }
-    
-    private boolean intTryParse(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        }
-        catch (NumberFormatException nfe) {
-            return false;
-        }
-    }
+    MetodosUteis mu = new MetodosUteis();
 
     /**
     * Método de ciframento baseado na substituição de caracteres, no qual cada caractere é convertido para binário de acordo com a tabela ASCII e somado a uma chave binária.
@@ -46,16 +17,16 @@ public class Criptografia extends Exception {
             throws Exception {
         if (text.isEmpty()) throw new Exception("Digite algum(a) texto/palavra para ser cifrado(a).");
         if (key.isEmpty()) throw new Exception("Digite uma chave (em binário).");
-        if (!isBinary(key)) throw new Exception("A chave deve ser em binário (0 ou 1).");
+        if (!mu.isBinary(key)) throw new Exception("A chave deve ser em binário (0 ou 1).");
         if (key.length() > 8) throw new Exception("A chave deve ter no máximo 8 dígitos.");
-        String invalidchars = invalidCharsInString(text, 0, 255);
+        String invalidchars = mu.invalidCharsInString(text, 0, 255);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) no(a) texto/palavra.\nCaracteres inválidos: " + invalidchars);
 
         String textCifrado = "";
-        key = padLeft(key, 8, '0');
+        key = mu.padLeft(key, 8, '0');
         for (char c : text.toCharArray())
         {
-            String charBinary = padLeft(Integer.toBinaryString(c), 8, '0');
+            String charBinary = mu.padLeft(Integer.toBinaryString(c), 8, '0');
             String charCifrado = "";
             
             for (int i = 0; i < 8; i++) {
@@ -78,8 +49,8 @@ public class Criptografia extends Exception {
             throws Exception {
         int MAX_DESLOCAMENTO = ((max + 1) - min);
         if (text.isEmpty()) throw new Exception("Digite algum(a) texto/palavra para ser cifrado(a).");
-        if (deslocamento < 0 || deslocamento > MAX_DESLOCAMENTO) throw new Exception("O deslocamento não pode ser menor que 0 e não pode ser maior que " + MAX_DESLOCAMENTO);
-        String invalidchars = invalidCharsInString(text, min, max);
+        if (deslocamento < 0 || deslocamento > MAX_DESLOCAMENTO) throw new Exception("O deslocamento não pode ser menor que 0 e não pode ser maior que " + MAX_DESLOCAMENTO + ".");
+        String invalidchars = mu.invalidCharsInString(text, min, max);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) no(a) texto/palavra.\nCaracteres inválidos: " + invalidchars);
 
         String textCifrado = "";
@@ -102,7 +73,7 @@ public class Criptografia extends Exception {
         int MAX_DESLOCAMENTO = ((max + 1) - min);
         if (text.isEmpty()) throw new Exception("Digite algum(a) texto/palavra para ser decifrado(a).");
         if (deslocamento < 0 || deslocamento > MAX_DESLOCAMENTO) throw new Exception("O deslocamento não pode ser menor que 0 e não pode ser maior que " + MAX_DESLOCAMENTO);
-        String invalidchars = invalidCharsInString(text, min, max);
+        String invalidchars = mu.invalidCharsInString(text, min, max);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) no(a) texto/palavra.\nCaracteres inválidos: " + invalidchars);
 
         String textDecifrado = "";
@@ -170,16 +141,16 @@ public class Criptografia extends Exception {
         if (text.isEmpty()) throw new Exception("Digite algum(a) texto/palavra para ser cifrado(a).");
         if (key.isEmpty()) throw new Exception("Digite uma chave.");
         if (key.length() > 8) throw new Exception("A chave deve ter no máximo 8 dígitos.");
-        String invalidchars = invalidCharsInString(text, 32, 255);
+        String invalidchars = mu.invalidCharsInString(text, 32, 255);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) no(a) texto/palavra.\nCaracteres inválidos: " + invalidchars);
-        invalidchars = invalidCharsInString(key, 33, 255);
+        invalidchars = mu.invalidCharsInString(key, 33, 255);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) na chave.\nCaracteres inválidos: " + invalidchars);
 
         int valorDaChave = 0;
         for (int i = 0; i < key.length(); i++) valorDaChave += (key.charAt(i) * (key.length() - i));
         int MAX_BLOCK_LENGTH = Integer.toHexString(255 + valorDaChave).length();
         String textCifrado = String.valueOf(MAX_BLOCK_LENGTH);
-        for (char c : text.toCharArray()) textCifrado += padLeft(Integer.toHexString(c + valorDaChave), MAX_BLOCK_LENGTH, '0');
+        for (char c : text.toCharArray()) textCifrado += mu.padLeft(Integer.toHexString(c + valorDaChave), MAX_BLOCK_LENGTH, '0');
         return textCifrado.toUpperCase();
     }
 
@@ -193,11 +164,11 @@ public class Criptografia extends Exception {
         if (text.isEmpty()) throw new Exception("Digite algum(a) texto/palavra para ser cifrado(a).");
         if (key.isEmpty()) throw new Exception("Digite uma chave.");
         if (key.length() > 8) throw new Exception("A chave deve ter no máximo 8 dígitos.");
-        String invalidchars = invalidCharsInString(text, 32, 255);
+        String invalidchars = mu.invalidCharsInString(text, 32, 255);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) no(a) texto/palavra.\nCaracteres inválidos: " + invalidchars);
-        invalidchars = invalidCharsInString(key, 33, 255);
+        invalidchars = mu.invalidCharsInString(key, 33, 255);
         if (!invalidchars.isEmpty()) throw new Exception("Existe(m) caractere(s) inválido(s) na chave.\nCaracteres inválidos: " + invalidchars);
-        if (!intTryParse(String.valueOf(text.charAt(0)))) throw new Exception("Não foi possível decifrar, texto cifrado adulterado.");
+        if (!mu.intTryParse(String.valueOf(text.charAt(0)))) throw new Exception("Não foi possível decifrar, texto cifrado adulterado.");
         int MAX_BLOCK_LENGTH = Integer.parseInt(String.valueOf(text.charAt(0)));
 
         int valorDaChave = 0;
