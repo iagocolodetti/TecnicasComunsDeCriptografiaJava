@@ -5,13 +5,15 @@
 
 public class Criptografia extends Exception {
     MetodosUteis mu = new MetodosUteis();
-
+    
     /**
-    * Método de ciframento baseado na substituição de caracteres, no qual cada caractere é convertido para binário de acordo com a tabela ASCII e somado a uma chave binária.
-    * Este método também decifra em caso de ser um(a) texto/palavra cifrado por ele.
+    * Método de ciframento baseado na substituição de caracteres, no qual cada caractere é convertido para binário de acordo com a tabela ASCII e somado a uma chave binária.<br>
+    * Este método também decifra em caso de ser um(a) texto/palavra cifrado(a) por ele.<br><br>
     * Técnica conhecida como 'Cifra XOR'.
-    * parâmetro "text" -> Texto/Palavra a ser cifrado(a).
-    * parâmetro "key" -> Chave binária.
+     * @param text Texto/Palavra a ser cifrado(a)/decifrado(a).
+     * @param key Chave binária.
+     * @return Retorna o(a) texto/palavra cifrado(a)/decifrado(a).
+     * @throws java.lang.Exception
     */
     public String Cifrar(String text, String key) 
             throws Exception {
@@ -39,11 +41,14 @@ public class Criptografia extends Exception {
     }
 
     /**
-    * Método de ciframento baseado na substituição, no qual cada caractere é deslocado de acordo com um inteiro (k) usado para deslocamento. Técnica conhecida como 'Cifra de César'.
-    * parâmetro "text" -> Texto/Palavra a ser cifrado(a).
-    * parâmetro "deslocamento" -> Número inteiro (k) que será usado como base para efetuar o deslocamento do(s) caractere(s).
-    * parâmetro "min" -> Caractere mínimo permitido.
-    * parâmetro "max" -> Caractere máximo permitido.
+    * Método de ciframento baseado na substituição, no qual cada caractere é deslocado de acordo com um inteiro (k) usado para deslocamento.<br><br>
+    * Técnica conhecida como 'Cifra de César'.
+     * @param text Texto/Palavra a ser cifrado(a).
+     * @param deslocamento Número inteiro (k) que será usado como base para efetuar o deslocamento do(s) caractere(s).
+     * @param min Valor do caractere mínimo de acordo com a tabela ASCII permitido.
+     * @param max Valor do caractere máximo de acordo com a tabela ASCII permitido.
+     * @return Retorna o(a) texto/palavra cifrado(a).
+     * @throws java.lang.Exception
     */
     public String Cifrar(String text, int deslocamento, int min, int max) 
             throws Exception {
@@ -63,10 +68,12 @@ public class Criptografia extends Exception {
 
     /**
     * Método de deciframento para decifrar palavras cifradas com a técnica 'Cifra de César'.
-    * parâmetro "text" -> Texto/Palavra a ser decifrado(a).
-    * parâmetro "deslocamento" -> Número inteiro (k) que será usado como base para efetuar o deslocamento do(s) caractere(s).
-    * parâmetro "min" -> Caractere mínimo permitido.
-    * parâmetro "max" -> Caractere máximo permitido.
+     * @param text Texto/Palavra a ser decifrado(a).
+     * @param deslocamento Número inteiro (k) que será usado como base para efetuar o deslocamento do(s) caractere(s).
+     * @param min Valor do caractere mínimo de acordo com a tabela ASCII permitido.
+     * @param max Valor do caractere máximo de acordo com a tabela ASCII permitido.
+     * @return Retorna o(a) texto/palavra decifrado(a).
+     * @throws java.lang.Exception
     */
     public String Decifrar(String text, int deslocamento, int min, int max) 
             throws Exception {
@@ -85,8 +92,11 @@ public class Criptografia extends Exception {
     }
 
     /**
-    * Método de ciframento baseado na transposição, no qual cada caracteres são embaralhados. Técnica conhecida como 'Cifra Rail Fence (Zig Zag)'.
-    * parâmetro "text" -> Texto/Palavra a ser cifrado(a).
+    * Método de ciframento baseado na transposição, no qual cada caracteres são embaralhados.<br><br>
+    * Técnica conhecida como 'Cifra Rail Fence (Zig Zag)'.
+     * @param text Texto/Palavra a ser cifrado(a).
+     * @return Retorna o(a) texto/palavra cifrado(a).
+     * @throws java.lang.Exception
     */
     public String Cifrar(String text) 
             throws Exception {
@@ -103,7 +113,9 @@ public class Criptografia extends Exception {
 
     /**
     * Método de deciframento para decifrar palavras cifradas com a técnica 'Cifra Rail Fence (Zig Zag)'.
-    * parâmetro "text" -> Texto/Palavra a ser decifrado(a).
+     * @param text Texto/Palavra a ser decifrado(a).
+     * @return Retorna o(a) texto/palavra decifrado(a).
+     * @throws java.lang.Exception
     */
     public String Decifrar(String text) 
             throws Exception {
@@ -133,8 +145,10 @@ public class Criptografia extends Exception {
 
     /**
     * Método de ciframento usando matemática. A partir da chave um valor é gerado e é somado ao valor em decimal de cada caractere na tabela ASCII.
-    * parâmetro "text" -> Texto/Palavra a ser cifrado(a).
-    * parâmetro "key" -> Chave.
+     * @param text Texto/Palavra a ser cifrado(a).
+     * @param key Chave.
+     * @return Retorna o(a) texto/palavra cifrado(a).
+     * @throws java.lang.Exception
     */
     public String CifrarM(String text, String key) 
             throws Exception {
@@ -156,8 +170,10 @@ public class Criptografia extends Exception {
 
     /**
     * Método de deciframento usando matemática. Usando a mesma chave no qual um(a) determinado(a) texto/palavra foi cifrado(a) é possível decifrá-lo(a) usando este método.
-    * parâmetro "text" -> Texto/Palavra a ser decifrado(a).
-    * parâmetro "key" -> Chave.
+     * @param text Texto/Palavra a ser decifrado(a).
+     * @param key Chave.
+     * @return Retorna o(a) texto/palavra decifrado(a).
+     * @throws java.lang.Exception
     */
     public String DecifrarM(String text, String key) 
             throws Exception {
